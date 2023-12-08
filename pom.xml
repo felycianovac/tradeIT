@@ -155,19 +155,6 @@
                     </execution>
                 </executions>
             </plugin>
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.2.0</version> <!-- Use the latest version available -->
-        <configuration>
-            <archive>
-                <manifest>
-                    <addClasspath>true</addClasspath>
-                    <mainClass>org.example.Main</mainClass> <!-- Replace with your main class -->
-                </manifest>
-            </archive>
-        </configuration>
-    </plugin>
     </plugins>
 </build>
 </project>

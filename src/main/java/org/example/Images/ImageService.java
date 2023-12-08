@@ -20,7 +20,7 @@ public class ImageService {
     private ProductRepository productRepository;
     public String uploadFile(MultipartFile file,  Integer productId){
         try {
-            String bucketName = "iamges";
+            String bucketName = "images";
             String objectName = file.getOriginalFilename();
             minioClient.putObject(
                     PutObjectArgs.builder()
