@@ -50,8 +50,8 @@ public class AuthenticationService {
                 return new RegistrationResponse(false, "Username already taken.");
             }
             var user = User.builder()
-                    .firstName(request.getFirstname())
-                    .lastName(request.getLastname())
+                    .firstName(request.getName())
+                    .lastName(request.getSurname())
                     .username(request.getUsername())
                     .email(request.getEmail())
                     .password(passwordEncoder.encode(request.getPassword()))
