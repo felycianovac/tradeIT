@@ -50,15 +50,14 @@ public class AuthenticationService {
                 return new RegistrationResponse(false, "Username already taken.");
             }
             var user = User.builder()
-                    .firstName(request.getName())
-                    .lastName(request.getSurname())
+                    .firstName(request.getFirstname())
+                    .lastName(request.getLastname())
                     .username(request.getUsername())
                     .email(request.getEmail())
                     .password(passwordEncoder.encode(request.getPassword()))
                     .role(Role.user)
                     .build();
             userRepository.save(user);
-
             String token = UUID.randomUUID().toString();
             VerificationToken newVerificationToken = new VerificationToken();
             newVerificationToken.setUser(user);

@@ -8,6 +8,6 @@ import java.util.List;
 @Repository
 public interface MessageRepository extends JpaRepository<Messages, Integer> {
 
-    List<Messages> findByChatRoom_IdOrderByTimestamp(Integer roomId);
+    List<Messages> findByChatRoom_IdOrderByTimestamp(Integer room_id);
 
 }

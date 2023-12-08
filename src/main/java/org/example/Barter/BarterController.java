@@ -8,6 +8,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin
@@ -20,10 +21,11 @@ public class BarterController {
         return new ResponseEntity<>(barterService.saveProduct(tradeProposal), HttpStatus.CREATED);
     }
     @GetMapping("/{barter_id}")
-    public ResponseEntity<Barter> getBarterById(@PathVariable("barter_id") Integer barterId) {
+    public ResponseEntity<BarterDTO> getBarterById(@PathVariable("barter_id") Integer barterId) {
         Barter barter = barterService.getBarterById(barterId);
         if (barter != null) {
-            return new ResponseEntity<>(barter, HttpStatus.OK);
+            BarterDTO barterDTO = BarterDTO.fromEntity(barter);
+            return new ResponseEntity<>(barterDTO, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

@@ -12,12 +12,12 @@ import org.example.Product.ProductDTO2;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BarterProductDTO {
-    private Integer userId;
+    private Integer user_id;
     private String username;
     private ProductDTO2 product;
     public static BarterProductDTO fromEntity(Product product) {
         return BarterProductDTO.builder()
-                .userId(product.getSeller().getId())
+                .user_id(product.getSeller().getId())
                 .username(product.getSeller().getUsername())
                 .product(ProductDTO2.fromEntity(product))
                 .build();

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.User.UserDTO;
 
 import java.time.LocalDateTime;
 
@@ -14,19 +15,14 @@ import java.time.LocalDateTime;
 public class MessageDTO {
 
     private Integer messageId;
-    private Integer senderId;
-
-    private String sender;
-
-    private String messageText;
-
+    private UserDTO sender;
+    private String text;
     private LocalDateTime timestamp;
 
     public static MessageDTO mapFromMessage(Messages message){
         return new MessageDTO(
                 message.getId(),
-                message.getSender().getId(),
-                message.getSender().getUsername(),
+                UserDTO.fromUser(message.getSender()),
                 message.getMessageText(),
                 message.getTimestamp()
         );

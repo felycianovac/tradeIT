@@ -13,7 +13,7 @@ import java.util.List;
 public interface ChatRoomRepository extends JpaRepository<ChatRoom, Integer> {
     ChatRoom findByRoomName(String roomName);
     @Query(value = "SELECT c.* FROM ChatRooms c " +
-            "JOIN UserChatRoom ucr ON c.RoomID = ucr.RoomID " +
-            "WHERE ucr.UserID = :userId", nativeQuery = true)
-    List<ChatRoom> findChatRoomsByUserId(@Param("userId") Integer userId);
+            "JOIN UserChatRoom ucr ON c.room_id = ucr.room_id " +
+            "WHERE ucr.user_id = :user_id", nativeQuery = true)
+    List<ChatRoom> findChatRoomsByUserId(@Param("user_id") Integer userId);
 }

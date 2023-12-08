@@ -1,10 +1,11 @@
-package org.example.Chat.ChatRooms;
+package org.example.Chat.UserChatRoom;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.Chat.ChatRooms.ChatRoom;
 import org.example.User.User;
 
 @Data

@@ -30,8 +30,8 @@ public class Barter {
     private Product requestedId;
     @Column(name = "status")
     private String status;
-    @Column(name = "initiated_at")
-    private Date initiated_at;
+    @Column(name = "initialize_at")
+    private Date initialize_at;
     @Column(name = "last_updated")
     private Date last_updated;
     @Column(name = "message")

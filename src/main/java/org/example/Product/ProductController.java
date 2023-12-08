@@ -34,10 +34,9 @@ public class ProductController {
             @RequestParam(required = false) String condition,
             @RequestParam(required = false) Integer seller,
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) String city_id,
-            @AuthenticationPrincipal User userDetails
+            @RequestParam(required = false) String city_id
     ) {
-        return new ResponseEntity<>(productService.getProducts(category, condition, userDetails.getId(), name, city_id), HttpStatus.OK);
+        return new ResponseEntity<>(productService.getProducts(category, condition, seller, name, city_id), HttpStatus.OK);
     }
     @GetMapping("/{product_id}")
     public ResponseEntity<ProductDTO> getProducts(

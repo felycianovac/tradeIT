@@ -16,28 +16,28 @@ public class BarterDTO {
 
     private Integer id;
 
-    private BarterProductDTO offeredBy;
+    private BarterProductDTO offered_by;
 
-    private BarterProductDTO requestedFrom;
+    private BarterProductDTO requested_from;
 
     private String status;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "UTC")
-    private Date initiatedAt;
+    private Date initiated_at;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "UTC")
-    private Date lastUpdated;
+    private Date last_updated;
 
     private String message;
 
     public static BarterDTO fromEntity(Barter barter) {
         return BarterDTO.builder()
                 .id(barter.getId())
-                .offeredBy(BarterProductDTO.fromEntity(barter.getOfferedId()))
-                .requestedFrom(BarterProductDTO.fromEntity(barter.getRequestedId()))
+                .offered_by(BarterProductDTO.fromEntity(barter.getOfferedId()))
+                .requested_from(BarterProductDTO.fromEntity(barter.getRequestedId()))
                 .status(barter.getStatus())
-                .initiatedAt(barter.getInitiated_at())
-                .lastUpdated(barter.getLast_updated())
+                .initiated_at(barter.getInitialize_at())
+                .last_updated(barter.getLast_updated())
                 .message(barter.getMessage())
                 .build();
     }
